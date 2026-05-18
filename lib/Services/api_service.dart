@@ -94,8 +94,8 @@ class ApiService {
       Uri.parse('${ApiConstants.baseUrl}${ApiConstants.todos}/$recordId'),
       headers: {'Content-Type': 'application/json'},
       body: json.encode({
-        if (subject != null) 'todo': subject,
-        if (isPassed != null) 'completed': isPassed,
+        'todo': ?subject,
+        'completed': ?isPassed,
       }),
     );
 

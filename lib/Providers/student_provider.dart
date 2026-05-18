@@ -85,7 +85,6 @@ class GradeProvider with ChangeNotifier {
     await _runSilent(() async {
       final updatedRecord = StudentGrade(id: recordId, subject: subject, isPassed: isPassed);
       
-      // Optimistic Update: instantly update in-memory list first so the UI responds immediately!
       final index = _grades.indexWhere((record) => record.id == recordId);
       if (index != -1) _grades[index] = updatedRecord;
 
@@ -111,7 +110,7 @@ class GradeProvider with ChangeNotifier {
         isPassed: existingRecord.isPassed
       );
 
-      // Optimistic Patch: instantly update in-memory list first!
+      
       _grades[index] = patchedRecord;
 
       if (recordId <= 150) {
@@ -126,7 +125,7 @@ class GradeProvider with ChangeNotifier {
 
   Future<void> deleteGrade(int recordId) async {
     await _runSilent(() async {
-      // Optimistic Delete: instantly remove from memory first!
+      
       _grades.removeWhere((record) => record.id == recordId);
 
       if (recordId <= 150) {

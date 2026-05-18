@@ -1,38 +1,35 @@
-# Student Grading System (HTTP & Provider)
+| Name | ID | Section |
+| :--- | :--- | :--- |
+| Manuhe Habtamu Mekonnen | UGR/2808/16 | 2 |
 
-A sophisticated Flutter application designed for teachers to manage and track student grades. This version implements state management using the **Provider** pattern and handles networking with the **HTTP** package, connecting to a unified REST API.
+# Student Register System (HTTP & Provider)
 
----
+A clean, premium Flutter application to track student course registry and grade status using **Provider** and standard **HTTP** networking.
 
-### 💡 Project Notes & Interaction
-- **One URL Strategy**: Consolidates all data operations (GET, POST, PUT, DELETE) through a single endpoint (`/todos`). 
-- **Developer Hint**: Since `jsonplaceholder` is a mock API, `POST`/`PUT` requests will return a success status, but the data won't persist on their servers. The app simulates persistence locally for the session.
-- **Workflow**: 
-    1.  **Dashboard**: Start here to navigate.
-    2.  **View All**: Displays a randomized set of 5 students to simulate a "live class" view.
-    3.  **Search**: Use IDs `1-10` for reliable mock data results.
+## How it's Built (Simply Put)
+- **State Management**: Built on standard `ChangeNotifier` (`GradeProvider`) to keep UI in sync reactively.
+- **Networking**: Calls standard HTTP endpoints (`GET`, `POST`, `PUT`, `DELETE`) pointing to `dummyjson.com/todos` to simulate real-world CRUD requests.
+- **Data Flow**: The UI communicates strictly with the `GradeProvider`, which fetches, inserts, updates, and removes student records via a centralized `ApiService`.
 
----
+## App Screenshots
 
-## Key Features
-- **Student Management**: Focuses on `studentId` as the primary identifier across the system.
-- **Grading Dashboard**: 
-  - **View Students Graded**: Interactive list view of current records.
-  - **Search by Student ID**: Dedicated detail view for filtering specific student history.
-  - **Add Student Grade**: Dynamic form to input student names and assignment titles.
-- **Modern UI**: Clean, icon-free listing with bold status indicators (**DONE** vs **NOT DONE**).
+| Home Page | Student Registration |
+| :---: | :---: |
+| ![Home Page](screenshots/home_page.png) <br> Main dashboard showing student list | ![Register](screenshots/register.png) <br> Form to add new student records |
 
-## Implementation Details
-- **Architecture**: Model-Service-Provider (MSP) structure.
-- **State Management**: `GradeProvider` handles the business logic and UI synchronization.
-- **Networking**: `ApiService` encapsulates RESTful calls to `jsonplaceholder.typicode.com`.
-- **Theme**: Dark-themed Material design with a deep purple accent.
+| POST Request | POST Success |
+| :---: | :---: |
+| ![POST UI](screenshots/POST_request_UI.png) <br> Interface for creating entries | ![POST Success](screenshots/POST_success.png) <br> Confirmation of successful creation |
 
-## Simple Summary
-This app is built for simplicityand it uses **Provider** for state management and **HTTP** for network calls. It is lightweight, easy to maintain, and perfect for quick student data management. Any teacher can quickly add, view, or delete grades with zero setup time.
+| PUT Request | PUT Success |
+| :---: | :---: |
+| ![PUT UI](screenshots/PUT_request_UI.png) <br> Interface for updating entries | ![PUT Success](screenshots/PUT_success.png) <br> Confirmation of successful update |
 
-## Getting Started
-1. Clone the repository.
-2. Run `flutter pub get` to install dependencies (provider, http).
-3. Connect an emulator or device.
-4. Execute `flutter run`.
+| PATCH Request | PATCH Success |
+| :---: | :---: |
+| ![PATCH UI](screenshots/PATCH_request_UI.png) <br> Interface for partial updates | ![PATCH Success](screenshots/PATCH_success.png) <br> Confirmation of successful patch |
+
+| DELETE Request | POST by ID |
+| :---: | :---: |
+| ![DELETE Success](screenshots/DELETE_request_success.png) <br> Confirmation of record deletion | ![POST by ID](screenshots/POST_byid.png) <br> Fetching/Posting specific records by ID |
+
